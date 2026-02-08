@@ -1013,7 +1013,7 @@ func TestTraceAndTerminate(t *testing.T) {
 // LIFO: Cascade Failure destroys all agents (Mobius dies), then Mobius effect still resolves
 // and destroys the targeted Reactive Plating.
 func TestMobiusTorrentialEffectSerialization(t *testing.T) {
-	mobius := MobiusTheCryoSovereign()
+	mobius := FrostbiteTyrant()
 	fodder := vanillaAgent("Fodder", 4, 1000, 1000, AttrWATER)
 	cascFailure := CascadeFailure()
 	reactivePlating := ReactivePlating()
@@ -1034,7 +1034,7 @@ func TestMobiusTorrentialEffectSerialization(t *testing.T) {
 	p1.AddAction(ActionSetTech, "Reactive Plating")
 
 	// T3 (P1): Sacrifice summon Mobius → effect serialization fires
-	p0.AddAction(ActionSacrificeSummon, "Mobius the Cryo Sovereign")
+	p0.AddAction(ActionSacrificeSummon, "Frostbite Tyrant")
 	p0.AddCardChoice("Fodder")           // sacrifice target
 	p0.AddYesNo(true)                    // yes, activate Mobius trigger
 	p1.AddYesNo(true)                    // yes, activate Cascade Failure
@@ -1049,7 +1049,7 @@ func TestMobiusTorrentialEffectSerialization(t *testing.T) {
 	for _, e := range destroys {
 		destroyNames[e.Card] = true
 	}
-	if !destroyNames["Mobius the Cryo Sovereign"] {
+	if !destroyNames["Frostbite Tyrant"] {
 		t.Error("Expected Mobius to be destroyed by Cascade Failure")
 	}
 

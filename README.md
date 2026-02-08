@@ -87,8 +87,8 @@ Agents are your creatures. Stronger ones (level 5+) require tributing existing A
 
 Decks are defined in `decks.yaml`. The repo ships with two built-in decks:
 
-- **Deepnet Fury** — A control-oriented deck built around Neon Hydra Lord and the Undercity Grid
-- **Cyberblaze** — An aggressive deck led by Infernal Plasma Emperor with burn effects
+- **Deepnet Fury** — A control-oriented deck built around Chromeborne Hydra Nexus and the Undercity Grid
+- **Cyberblaze** — An aggressive deck led by Scorched Circuit Despot with burn effects
 
 ## License
 

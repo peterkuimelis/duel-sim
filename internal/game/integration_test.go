@@ -27,7 +27,7 @@ func TestTranscriptFuryVsBlaze(t *testing.T) {
 		DeadlockSeal(),      // initial hand
 		IdentityHijack(),    // initial hand
 		HeadshotRoutine(),   // initial hand
-		LeviaMechDaedalus(), // T1 draw
+		AbyssalCircuitLeviathan(), // T1 draw
 		GreedProtocol(),     // T3 draw
 		CoreDump(),          // PoG draw 1
 		SignalAmplifier(),   // PoG draw 2

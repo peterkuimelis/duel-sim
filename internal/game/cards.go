@@ -1915,10 +1915,10 @@ func NeuralShackle() *Card {
 
 // --- Counter Trap ---
 
-// FirewallType8 — Counter Trap. Negate a program activation.
-func FirewallType8() *Card {
+// FirewallSentinel — Counter Trap. Negate a program activation.
+func FirewallSentinel() *Card {
 	eff := &CardEffect{
-		Name:      "Firewall Type-8",
+		Name:      "Firewall Sentinel",
 		ExecSpeed: ExecSpeed3,
 		CanActivate: func(d *Duel, card *CardInstance, player int) bool {
 			gs := d.State
@@ -1975,7 +1975,7 @@ func FirewallType8() *Card {
 				if myIndex > 0 {
 					negated := gs.Chain.Links[myIndex-1]
 					if d.isOnField(negated.Card) {
-						d.destroyByEffect(negated.Card, "negated by Firewall Type-8")
+						d.destroyByEffect(negated.Card, "negated by Firewall Sentinel")
 					}
 					gs.Chain.Links[myIndex-1].Effect = &CardEffect{
 						Name: "Negated",
@@ -1989,7 +1989,7 @@ func FirewallType8() *Card {
 		},
 	}
 	return &Card{
-		Name:     "Firewall Type-8",
+		Name:     "Firewall Sentinel",
 		CardType: CardTypeTrap,
 		TrapSub:  TrapCounter,
 		Effects:  []*CardEffect{eff},
@@ -2293,8 +2293,8 @@ func DroneCarrier() *Card {
 
 // --- Effect Agents: Sacrifice Summon Triggers ---
 
-// MobiusTheCryoSovereign — On sacrifice summon: destroy up to 2 Tech.
-func MobiusTheCryoSovereign() *Card {
+// FrostbiteTyrant — On sacrifice summon: destroy up to 2 Tech.
+func FrostbiteTyrant() *Card {
 	eff := &CardEffect{
 		Name:         "Mobius",
 		ExecSpeed:    ExecSpeed1,
@@ -2327,14 +2327,14 @@ func MobiusTheCryoSovereign() *Card {
 		Resolve: func(d *Duel, card *CardInstance, player int, targets []*CardInstance) error {
 			for _, t := range targets {
 				if d.isOnField(t) {
-					d.destroyByEffect(t, "Mobius the Cryo Sovereign")
+					d.destroyByEffect(t, "Frostbite Tyrant")
 				}
 			}
 			return nil
 		},
 	}
 	return &Card{
-		Name:      "Mobius the Cryo Sovereign",
+		Name:      "Frostbite Tyrant",
 		CardType:  CardTypeAgent,
 		Level:     6,
 		Attribute: AttrWATER,
@@ -2346,8 +2346,8 @@ func MobiusTheCryoSovereign() *Card {
 	}
 }
 
-// ThestalosThePlasmaSovereign — On sacrifice summon: discard 1 random from opponent's hand.
-func ThestalosThePlasmaSovereign() *Card {
+// PlasmaArcTyrant — On sacrifice summon: discard 1 random from opponent's hand.
+func PlasmaArcTyrant() *Card {
 	eff := &CardEffect{
 		Name:         "Thestalos",
 		ExecSpeed:    ExecSpeed1,
@@ -2383,7 +2383,7 @@ func ThestalosThePlasmaSovereign() *Card {
 		},
 	}
 	return &Card{
-		Name:      "Thestalos the Plasma Sovereign",
+		Name:      "Plasma Arc Tyrant",
 		CardType:  CardTypeAgent,
 		Level:     6,
 		Attribute: AttrFIRE,
@@ -2563,8 +2563,8 @@ func SirenEnforcer() *Card {
 	}
 }
 
-// LeviaMechDaedalus — Send 1 face-up Umi to Scrapheap; destroy all other cards on field.
-func LeviaMechDaedalus() *Card {
+// AbyssalCircuitLeviathan — Send 1 face-up Umi to Scrapheap; destroy all other cards on field.
+func AbyssalCircuitLeviathan() *Card {
 	eff := &CardEffect{
 		Name:       "Levia-Mech Nuke",
 		ExecSpeed:  ExecSpeed1,
@@ -2587,18 +2587,18 @@ func LeviaMechDaedalus() *Card {
 			for p := 0; p < 2; p++ {
 				for _, m := range gs.Players[p].Agents() {
 					if m.ID != card.ID {
-						d.destroyByEffect(m, "Levia-Mech - Daedalus")
+						d.destroyByEffect(m, "Abyssal Circuit Leviathan")
 					}
 				}
 				for _, st := range gs.Players[p].TechCards() {
-					d.destroyByEffect(st, "Levia-Mech - Daedalus")
+					d.destroyByEffect(st, "Abyssal Circuit Leviathan")
 				}
 			}
 			return nil
 		},
 	}
 	return &Card{
-		Name:      "Levia-Mech - Daedalus",
+		Name:      "Abyssal Circuit Leviathan",
 		CardType:  CardTypeAgent,
 		Level:     7,
 		Attribute: AttrWATER,
@@ -2610,9 +2610,9 @@ func LeviaMechDaedalus() *Card {
 	}
 }
 
-// NeonHydraLordNeoDaedalus — Can't normal summon. SS by tributing Levia-Dragon.
+// ChromeborneHydraNexus — Can't normal summon. SS by tributing Levia-Dragon.
 // Send Umi to Scrapheap; send all other cards to Scrapheap.
-func NeonHydraLordNeoDaedalus() *Card {
+func ChromeborneHydraNexus() *Card {
 	ssEff := &CardEffect{
 		Name:       "Neo-Daedalus Special Summon",
 		ExecSpeed:  ExecSpeed1,
@@ -2622,7 +2622,7 @@ func NeonHydraLordNeoDaedalus() *Card {
 				return false
 			}
 			for _, m := range d.State.Players[player].FaceUpAgents() {
-				if m.Card.Name == "Levia-Mech - Daedalus" {
+				if m.Card.Name == "Abyssal Circuit Leviathan" {
 					return true
 				}
 			}
@@ -2632,14 +2632,14 @@ func NeonHydraLordNeoDaedalus() *Card {
 			gs := d.State
 			var candidates []*CardInstance
 			for _, m := range gs.Players[player].FaceUpAgents() {
-				if m.Card.Name == "Levia-Mech - Daedalus" {
+				if m.Card.Name == "Abyssal Circuit Leviathan" {
 					candidates = append(candidates, m)
 				}
 			}
 			if len(candidates) == 0 {
 				return false, nil
 			}
-			chosen, err := d.Controllers[player].ChooseCards(d.ctx, gs, "Sacrifice Levia-Mech - Daedalus", candidates, 1, 1)
+			chosen, err := d.Controllers[player].ChooseCards(d.ctx, gs, "Sacrifice Abyssal Circuit Leviathan", candidates, 1, 1)
 			if err != nil {
 				return false, err
 			}
@@ -2675,11 +2675,11 @@ func NeonHydraLordNeoDaedalus() *Card {
 			for p := 0; p < 2; p++ {
 				for _, m := range gs.Players[p].Agents() {
 					if m.ID != card.ID {
-						d.destroyByEffect(m, "Neon Hydra Lord - Neo-Daedalus")
+						d.destroyByEffect(m, "Chromeborne Hydra Nexus")
 					}
 				}
 				for _, st := range gs.Players[p].TechCards() {
-					d.destroyByEffect(st, "Neon Hydra Lord - Neo-Daedalus")
+					d.destroyByEffect(st, "Chromeborne Hydra Nexus")
 				}
 				// Send hand to Scrapheap
 				for len(gs.Players[p].Hand) > 0 {
@@ -2693,7 +2693,7 @@ func NeonHydraLordNeoDaedalus() *Card {
 		},
 	}
 	return &Card{
-		Name:      "Neon Hydra Lord - Neo-Daedalus",
+		Name:      "Chromeborne Hydra Nexus",
 		CardType:  CardTypeAgent,
 		Level:     8,
 		Attribute: AttrWATER,
@@ -3036,10 +3036,10 @@ func JunkyardLurker() *Card {
 	}
 }
 
-// InfernalPlasmaEmperor — L9. On sacrifice summon, purge up to 5 FIRE from Scrapheap, destroy that many Tech.
-func InfernalPlasmaEmperor() *Card {
+// ScorchedCircuitDespot — L9. On sacrifice summon, purge up to 5 FIRE from Scrapheap, destroy that many Tech.
+func ScorchedCircuitDespot() *Card {
 	eff := &CardEffect{
-		Name:         "Infernal Plasma Emperor",
+		Name:         "Scorched Circuit Despot",
 		ExecSpeed:    ExecSpeed1,
 		EffectType:   EffectTrigger,
 		IsTrigger:    true,
@@ -3075,7 +3075,7 @@ func InfernalPlasmaEmperor() *Card {
 				return err
 			}
 			for _, c := range chosen {
-				d.purgeFromScrapheap(player, c, "Infernal Plasma Emperor")
+				d.purgeFromScrapheap(player, c, "Scorched Circuit Despot")
 			}
 			// Destroy that many Tech
 			count := len(chosen)
@@ -3095,14 +3095,14 @@ func InfernalPlasmaEmperor() *Card {
 			}
 			for _, t := range toDestroy {
 				if d.isOnField(t) {
-					d.destroyByEffect(t, "Infernal Plasma Emperor")
+					d.destroyByEffect(t, "Scorched Circuit Despot")
 				}
 			}
 			return nil
 		},
 	}
 	return &Card{
-		Name:      "Infernal Plasma Emperor",
+		Name:      "Scorched Circuit Despot",
 		CardType:  CardTypeAgent,
 		Level:     9,
 		Attribute: AttrFIRE,

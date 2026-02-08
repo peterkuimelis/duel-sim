@@ -1,7 +1,7 @@
 decks:
   - name: Deepnet Fury
     cards:
-      - name: Neon Hydra Lord - Neo-Daedalus
+      - name: Chromeborne Hydra Nexus
         count: 1
       - name: Prismatic Datafish
         count: 1
@@ -19,11 +19,11 @@ decks:
         count: 2
       - name: Amphibious Mech MK-3
         count: 1
-      - name: Levia-Mech - Daedalus
+      - name: Abyssal Circuit Leviathan
         count: 1
       - name: Siren Enforcer
         count: 1
-      - name: Mobius the Cryo Sovereign
+      - name: Frostbite Tyrant
         count: 1
       - name: Junkyard Lurker
         count: 1
@@ -61,14 +61,14 @@ decks:
         count: 1
       - name: Cascade Failure
         count: 1
-      - name: Firewall Type-8
+      - name: Firewall Sentinel
         count: 1
       - name: Deadlock Seal
         count: 1
 
   - name: Cyberblaze
     cards:
-      - name: Infernal Plasma Emperor
+      - name: Scorched Circuit Despot
         count: 1
       - name: Chrome Angus
         count: 1
@@ -88,7 +88,7 @@ decks:
         count: 2
       - name: Raging Plasma Sprite
         count: 1
-      - name: Thestalos the Plasma Sovereign
+      - name: Plasma Arc Tyrant
         count: 1
       - name: Gaia Core the Volatile Swarm
         count: 1
@@ -126,7 +126,7 @@ decks:
         count: 1
       - name: Cache Siphon
         count: 1
-      - name: Firewall Type-8
+      - name: Firewall Sentinel
         count: 1
       - name: Counter-Hack
         count: 2
